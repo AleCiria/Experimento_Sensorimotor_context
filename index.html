@@ -24,21 +24,22 @@
   <body></body>
   <script>  
 
+// Plugins used //
+    
 // jsPsych.randomization.sampleWithReplacement
-
-// preload 00
-// image-button-response 00
-// fullscreen 00
-// survey-multi-choice 00
-// survey-text 00
-// instructions 00
-// html-button-response 00
-// html-keyboard-response 00
+// preload 
+// image-button-response 
+// fullscreen 
+// survey-multi-choice 
+// survey-text 
+// instructions 
+// html-button-response 
+// html-keyboard-response 
 // survey-likert
-// 
+
 
 ///////////////////////////////////////////////////////////////////////////////////
-///////// Número ID del participante y aleatorización condiciones ////////////////
+///////// Generate an ID for each participant and randomize conditions ////////////////
 //////////////////////////////////////////////////////////////////////////////////
 
 var jsPsych = initJsPsych({});
@@ -51,7 +52,7 @@ var rand_subject_id = jsPsych.randomization.randomID(8);
 
 jsPsych.data.addProperties({ID: rand_subject_id});
 
-// Define the number of random conditions (4, sentences-word and word, sentidos-efector)
+// Define the number of random conditions (4, sentences-word or word and the rating order perceptual-motor)
 var num_cond = [1,2,3,4]; 
 
 var CONDITION = jsPsych.randomization.sampleWithReplacement(num_cond, 1);
@@ -145,10 +146,10 @@ var lengua_m = {
 ///////// INICIO EXPERIMENTO ///////////////////
 //////////////////////////////////////////////
 
-// Lista de oraciones (sentences), de la palabra (word) final y su probabilidad de cierre (alta, baja)
+// Lista de oraciones (sentences) con su respectiva palabra (word) en distintos tipos de contextos A y B
 
-// Define the number of random conditions (2, sentences-word and word)
-var num_lista = [1,2]; 
+// Define the number of random conditions (4 lists of stimuli)
+var num_lista = [1,2,3,4]; 
 
 var LISTA = jsPsych.randomization.sampleWithReplacement(num_lista, 1);
 
@@ -161,10 +162,14 @@ jsPsych.data.addProperties({num_lista: LISTA});
 var stimuli;
     if (LISTA == 1) {
         stimuli = stimuli_1;
-    } else {
+    } else if (LISTA == 2) {
         stimuli = stimuli_2;
+    } else if (LISTA == 3) {
+        stimuli = stimuli_3;
+    } else {
+        stimuli = stimuli_4;
     };
-
+ 
 
 // Aleatorizar los estímulos del experimento
 stimuli = jsPsych.randomization.shuffle(stimuli);
@@ -574,9 +579,9 @@ var dificultad ={
   button_label:"CONTINUAR",
   questions: [
     {
-      prompt: '<p><strong>En general, ¿la dificultad de esta tarea te pareció: fácil, media, o difícil?</strong></p>', 
+      prompt: '<p><strong>En general, ¿La dificultad de esta tarea te pareció: fácil, media, o difícil?</strong></p>', 
       name: 'dificultad', 
-      options: ['FACIL', 'MEDIA', 'DIFICIL'], 
+      options: ['FÁCIL', 'MEDIA', 'DIFÍCIL'], 
       required: true,
     }
   ],
