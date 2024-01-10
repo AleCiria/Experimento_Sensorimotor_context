@@ -605,7 +605,7 @@ var estrategia = {
 // Agradecimiento
 var agradecimiento = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: '<p>¡Muchas gracias por tu participación!</p><p>La tarea ha terminado, sólo falta guardar los datos de tus respuestas. Por favor, espera hasta que deje de dar vueltas el círculo para que se guarden los datos y después cierra la página. Gracias. :)</p>',
+    stimulus: '<p>¡Muchas gracias por tu participación!</p><p>La tarea ha terminado, sólo falta guardar los datos de tus respuestas.</p><p>Por favor, espera hasta que deje de dar vueltas el círculo para que se guarden los datos y después cierra la página. Gracias. :)</p>',
     choices: ["GUARDAR DATOS"]
 };
 
@@ -616,22 +616,7 @@ var pantalla_salir = {
     delay_after: 0
 };
 
-// Combine all blocks into the timeline
-//var timeline = [instructions].concat(trials).concat(debrief);
-
-// With the selected condition then the corresponding instructions and trial are selected
-
-var timeline;
-    if (CONDITION == 1) {
-        timeline = [preload,pantalla_completa,consentimiento,genero,edad,nacionalidad,lengua_m].concat(instructions_1).concat(inicio_experimento).concat(trials_1).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(pantalla_salir);
-    } else if (CONDITION == 2) {
-        timeline = [preload,pantalla_completa,consentimiento,genero,edad,nacionalidad,lengua_m].concat(instructions_2).concat(inicio_experimento).concat(trials_2).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(pantalla_salir);
-    } else if (CONDITION == 3) {
-        timeline = [preload,pantalla_completa,consentimiento,genero,edad,nacionalidad,lengua_m].concat(instructions_3).concat(inicio_experimento).concat(trials_3).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(pantalla_salir);
-    } else {
-        timeline = [preload,pantalla_completa,consentimiento,genero,edad,nacionalidad,lengua_m].concat(instructions_4).concat(inicio_experimento).concat(trials_4).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(pantalla_salir);
-    };
-
+// Save data
 const save_data = {
     type: jsPsychPipe,
     action: "save",
@@ -639,6 +624,23 @@ const save_data = {
     filename: `${rand_subject_id}.csv`,
     data_string: ()=>jsPsych.data.get().csv()
 };
+    
+    
+// Combine all blocks into the timeline
+
+// With the selected condition then the corresponding instructions and trial are selected
+
+var timeline;
+    if (CONDITION == 1) {
+        timeline = [preload,pantalla_completa,consentimiento,genero,edad,nacionalidad,lengua_m].concat(instructions_1).concat(inicio_experimento).concat(trials_1).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(save_data).concat(pantalla_salir);
+    } else if (CONDITION == 2) {
+        timeline = [preload,pantalla_completa,consentimiento,genero,edad,nacionalidad,lengua_m].concat(instructions_2).concat(inicio_experimento).concat(trials_2).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(save_data).concat(pantalla_salir);
+    } else if (CONDITION == 3) {
+        timeline = [preload,pantalla_completa,consentimiento,genero,edad,nacionalidad,lengua_m].concat(instructions_3).concat(inicio_experimento).concat(trials_3).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(save_data).concat(pantalla_salir);
+    } else {
+        timeline = [preload,pantalla_completa,consentimiento,genero,edad,nacionalidad,lengua_m].concat(instructions_4).concat(inicio_experimento).concat(trials_4).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(save_data).concat(pantalla_salir);
+    };
+
 
 // Run the experiment
 jsPsych.run(timeline);
