@@ -46,7 +46,7 @@
 // Start JsPsych and show progress bar 
 var jsPsych = initJsPsych({
     show_progress_bar: true,
-    message_progress_bar: 'Porcentaje completo'
+    message_progress_bar: 'Porcentaje de toda la tarea completado'
 });
 
 /* Generate an ID for each participant, a random number of 8 alphanumeric characters */
@@ -597,7 +597,7 @@ var estrategia = {
   type: jsPsychSurveyText,
   button_label: 'Continuar',
   questions: [
-    {prompt: '<p><str<p><strong> Finalmente, ¿Cuál fue la estrategia que utilizaste para evaluar las escalas de las PALABRAS?</strong></p>' + '<p><strong>Por ejemplo: pensar en el objeto, imaginar alguna situación donde aparezca, recordar algún evento relacionado, entre otras. </strong></p>', name: 'Estrategia', required: true}
+    {prompt: '<p><str<p><strong> Finalmente, ¿Cuál fue la estrategia que utilizaste para evaluar cómo experimentaste las PALABRAS?</strong></p>' + '<p>Por ejemplo: pensar en un objeto relacionado con la palabra, imaginar una situación en donde se use la palabra, recordar algún evento relacionado, entre otras.</p>', name: 'Estrategia', required: true}
   ],
 };
 
@@ -605,7 +605,7 @@ var estrategia = {
 // Agradecimiento
 var agradecimiento = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: '<p>¡Muchas gracias por tu participación!</p><p>La tarea ha terminado, sólo falta guardar los datos de tus respuestas.</p><p>Por favor, espera hasta que deje de dar vueltas el círculo para que se guarden los datos y después cierra la página. Gracias. :)</p>',
+    stimulus: '<p><strong>¡Muchas gracias por tu participación!</strong></p><p>La tarea ha terminado, sólo falta guardar los datos de tus respuestas.</p><p><strong>Por favor, presiona el botón GUARDAR DATOS y espera hasta que deje de dar vueltas el círculo para que se guarden todos los datos.</strong></p> <p>En cuanto esto ocurra ya puedes cerrar la página. Gracias. :)</p>',
     choices: ["GUARDAR DATOS"]
 };
 
