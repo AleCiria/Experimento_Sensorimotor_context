@@ -377,7 +377,7 @@ var trials_1 = [];
     // Define the sentence presentation trial
     var sentence_trial = {
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: '<div style="font-size: 150%">' + stimulus.sentence + '</div>',,
+        stimulus: '<div style="font-size: 150 px">' + stimulus.sentence + '</div>',,
         trial_duration: 2500,
         choices: "NO_KEYS"
     };
@@ -385,7 +385,7 @@ var trials_1 = [];
   // Define the word presentation trial
     var word_trial = {
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: '<div style="font-size: 150%">' + stimulus.word.toUpperCase() + '</div>',
+        stimulus: '<div style="font-size: 150 px">' + stimulus.word.toUpperCase() + '</div>',
         trial_duration: 2000,
         choices: "NO_KEYS",
         post_trial_gap: 500, 
