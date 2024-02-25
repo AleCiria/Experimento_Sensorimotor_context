@@ -373,19 +373,19 @@ jsPsych.data.addProperties({escala_action: action_scales});
 
 // Define the trial loop - experimental condition - sentences - order perceptual - action
 var trials_1 = [];
-    stimuli.forEach(function(stimulus) {
+stimuli.forEach(function(stimulus) {
     // Define the sentence presentation trial
     var sentence_trial = {
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: stimulus.sentence,
+        stimulus: '<div style="font-size: 150%;">' + stimulus.sentence + '</div>',
         trial_duration: 2500,
         choices: "NO_KEYS"
     };
 
-  // Define the word presentation trial
+    // Define the word presentation trial
     var word_trial = {
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: stimulus.word.toUpperCase(),
+        stimulus: '<div style="font-size: 150%;">' + stimulus.word.toUpperCase() + '</div>',
         trial_duration: 2000,
         choices: "NO_KEYS",
         post_trial_gap: 500, 
@@ -427,19 +427,19 @@ var trials_1 = [];
 
 // Define the trial loop - experimental condition - sentences - order action - perceptual
 var trials_2 = [];
-    stimuli.forEach(function(stimulus) {
+stimuli.forEach(function(stimulus) {
     // Define the sentence presentation trial
     var sentence_trial = {
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: stimulus.sentence,
+        stimulus: '<div style="font-size: 150%;">' + stimulus.sentence + '</div>',
         trial_duration: 2500,
         choices: "NO_KEYS"
     };
 
-  // Define the word presentation trial
+    // Define the word presentation trial
     var word_trial = {
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: stimulus.word.toUpperCase(),
+        stimulus: '<div style="font-size: 150%;">' + stimulus.word.toUpperCase() + '</div>',
         trial_duration: 2000,
         choices: "NO_KEYS",
         post_trial_gap: 500, 
@@ -483,17 +483,16 @@ var trials_2 = [];
 
 // Define the trial loop - experimental condition - words - order perceptual - action
 var trials_3 = [];
-    stimuli.forEach(function(stimulus) {
+stimuli.forEach(function(stimulus) {
     // Define the word presentation trial
     var word_trial = {
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: stimulus.word.toUpperCase(),
+        stimulus: '<div style="font-size: 150%;">' + stimulus.word.toUpperCase() + '</div>',
         trial_duration: 2500,
         choices: "NO_KEYS",
         post_trial_gap: 500, 
         data: {type: stimulus.type, sim: stimulus.sim, fam: stimulus.fam, imag: stimulus.imag, conc: stimulus.conc}
     };
-  
 
     // Define the perceptual strength rating trial
     var perceptual_trial = {
@@ -527,17 +526,16 @@ var trials_3 = [];
 
 // Define the trial loop - experimental condition - words - order action - perceptual
 var trials_4 = [];
-    stimuli.forEach(function(stimulus) {
+stimuli.forEach(function(stimulus) {
     // Define the word presentation trial
     var word_trial = {
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: stimulus.word.toUpperCase(),
+        stimulus: '<div style="font-size: 150%;">' + stimulus.word.toUpperCase() + '</div>',
         trial_duration: 2500,
         choices: "NO_KEYS",
         post_trial_gap: 500, 
         data: {type: stimulus.type, sim: stimulus.sim, fam: stimulus.fam, imag: stimulus.imag, conc: stimulus.conc}
     };
-  
 
     // Define the perceptual strength rating trial
     var perceptual_trial = {
