@@ -402,10 +402,10 @@ stimuli.forEach(function(stimulus) {
         data: {type: stimulus.type, sim: stimulus.sim, fam: stimulus.fam, imag: stimulus.imag, conc: stimulus.conc}
     };
 
-  // Define the perceptual strength rating trial
+ // Define the perceptual strength rating trial
     var perceptual_trial = {
         type: jsPsychSurveyLikert,
-        preamble: "Al leer la oración, en qué medida experimentaste " + stimulus.word.toUpperCase() + " mediante...            ",
+        preamble: "Al leer la oración: " + stimulus.sentence + " " + stimulus.word.toUpperCase() + ", en qué medida experimentaste " + stimulus.word.toUpperCase() + " mediante...",
         questions: perceptual_scales.map(function(scale) {
         //return {prompt: '<div style="display: flex; justify-content: space-between;">' + scale + '</div>', labels: ["0", "1", "2", "3", "4", "5"], required: true};
         //return {prompt: '<div style="float:left; align-items:left;"><p style="margin-right:5px;">' + scale + '</p></div>', labels: ["0", "1", "2", "3", "4", "5"], required: true};
@@ -421,7 +421,7 @@ stimuli.forEach(function(stimulus) {
   // Define the action strength rating trial
     var action_trial = {
         type: jsPsychSurveyLikert,
-        preamble: "Al leer la oración, en qué medida experimentaste " + stimulus.word.toUpperCase() + " al realizar una acción con la / el...",
+        preamble: "Al leer la oración: " + stimulus.sentence + " " + stimulus.word.toUpperCase() + ", en qué medida experimentaste " + stimulus.word.toUpperCase() + " al realizar una acción con la / el...",
         questions: action_scales.map(function(scale) {
             return {prompt: '<div style= "width: 900px;"> <div style="float:left;">' + scale + '</div></div>', labels: ["0", "1", "2", "3", "4", "5"], required: true, name: scale};
          }),
@@ -433,7 +433,6 @@ stimuli.forEach(function(stimulus) {
   // Add all trials to the trial loop
     trials_1.push(sentence_trial, word_trial, perceptual_trial, action_trial);
 });
-
 
 // Define the trial loop - experimental condition - sentences - order action - perceptual
 var trials_2 = [];
@@ -459,7 +458,7 @@ stimuli.forEach(function(stimulus) {
   // Define the perceptual strength rating trial
     var perceptual_trial = {
         type: jsPsychSurveyLikert,
-        preamble: "Al leer la oración, en qué medida experimentaste " + stimulus.word.toUpperCase() + " mediante...            ",
+        preamble: "Al leer la oración: " + stimulus.sentence + " " + stimulus.word.toUpperCase() + ", en qué medida experimentaste " + stimulus.word.toUpperCase() + " mediante...",
         questions: perceptual_scales.map(function(scale) {
         //return {prompt: '<div style="display: flex; justify-content: space-between;">' + scale + '</div>', labels: ["0", "1", "2", "3", "4", "5"], required: true};
         //return {prompt: '<div style="float:left; align-items:left;"><p style="margin-right:5px;">' + scale + '</p></div>', labels: ["0", "1", "2", "3", "4", "5"], required: true};
@@ -475,7 +474,7 @@ stimuli.forEach(function(stimulus) {
   // Define the action strength rating trial
     var action_trial = {
         type: jsPsychSurveyLikert,
-        preamble: "Al leer la oración, en qué medida experimentaste " + stimulus.word.toUpperCase() + " al realizar una acción con la / el...",
+        preamble: "Al leer la oración: " + stimulus.sentence + " " + stimulus.word.toUpperCase() + ", en qué medida experimentaste " + stimulus.word.toUpperCase() + " al realizar una acción con la / el...",
         questions: action_scales.map(function(scale) {
             return {prompt: '<div style= "width: 900px;"> <div style="float:left;">' + scale + '</div></div>', labels: ["0", "1", "2", "3", "4", "5"], required: true, name: scale};
         }),
@@ -483,12 +482,10 @@ stimuli.forEach(function(stimulus) {
         scale_width: 375,
         button_label: "Continuar"
     };
-
+  
     // Add all trials to the trial loop
     trials_2.push(sentence_trial, word_trial, action_trial, perceptual_trial);
 });
-
-
 
 
 // Define the trial loop - experimental condition - words - order perceptual - action
