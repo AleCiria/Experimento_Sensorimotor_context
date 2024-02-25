@@ -80,15 +80,57 @@ var preload = {
     images: imagenes
 };
 
-var consentimiento = {
-    type: jsPsychImageButtonResponse,
-    stimulus: 'Consentimiento_exp_sensorimotor.png',
-    stimulus_with: 1100,
-    stimulus_height: 1100,
-    maintain_aspect_ratio: true,
-    choices: ['<p><strong>ACEPTO</strong></></p>']
+var consentimiento_informado = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `
+        <div style="display: flex; justify-content: space-between;">
+            <img src="logo_UNAM.png" style="width: 100px; height: auto;">
+            <img src="logo_fac.png" style="width: 100px; height: auto;">
+            <img src="COCO_blanco_hori.jpg" style="width: auto; height: 100px;">
+        </div>
+        <div style="text-align: center;">
+            <p style="font-weight: bold; font-size: 20px;">UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO</p>
+            <p>Laboratorio de Cognición Corporizada</p>
+            <p><strong>Consentimiento informado</strong></p>
+            </div>
+            <div style="text-align: left;">
+            <p>Por favor, lee cuidadosamente la siguiente información sobre el presente estudio y el consentimiento informado. Si
+            después de leer la información deseas participar en esta investigación puedes darle clic al botón en la parte inferior de
+            este documento que dice <strong>ACEPTO</strong></p>
+            <p>El presente estudio está a cargo del Laboratorio de Cognición Corporizada de la Facultad de Psicología de la Universidad
+            Nacional Autónoma de México (UNAM), en donde la responsable del laboratorio y de la investigación es la Dra. Alejandra
+            Ciria Fernández Varela. El <strong>estudio</strong> trata sobre la representación del conocimiento de conceptos. El <strong>objetivo</strong> de la
+            investigación es conocer lo que las personas piensan sobre el conocimiento adquirido de los conceptos. La <strong>tarea</strong> implica
+            reflexionar y evaluar en una escala distintos aspectos de tu experiencia con distintos conceptos. No hay respuestas
+            correctas o incorrectas, lo importante es conocer tu experiencia.</p>
+            <p><strong>Es importante mencionarte que:</strong></p>
+            <ul>
+                <li>La investigación no causa ningún daño a tu salud física o psicológica.</li>
+                <li>Es importante que tengas conocimiento que puedes retirarte del estudio en cualquier momento si así lo deseas.</li>
+                <li>Tu participación es de carácter académico y no se otorga ningún tipo de beneficio económico.</li>
+                <li>Para participar, no necesitas dar tu nombre o algún otro dato que revele tu identidad.</li>
+                <li>Los datos recolectados en este estudio serán utilizados para fines académicos o de investigación y podrán ser compartidos con instituciones y personas ajenas a la UNAM.</li>
+            </ul>
+            <p><strong>¿Qué ocurre con los datos recolectados?</strong></p>
+            <p>Al comenzar el experimento, se te asignará automáticamente un código para que tus datos sean completamente
+            anónimos. Este código se asociará a las respuestas del experimento junto con tus datos demográficos como edad y
+            género. Una vez finalizada la investigación se publicarán los resultados. Recuerda que tus datos se almacenan de forma
+            anónima, por lo que así permanecerán en la base de datos que se archiven.</p>
+            <p><strong>Duración aproximada de la tarea:</strong> 15-20 minutos</p>
+            <p>"Confirmo que he leído la información aquí presentada y acepto participar en el estudio de forma voluntaria. Tengo
+            conocimiento sobre los objetivos del estudio y los datos de quienes lo llevan a cabo. Autorizo que los datos recabados
+            de mi participación sean utilizados con fines académicos o de investigación y compartidos con instituciones y personas
+            ajenas a la UNAM. Tengo conocimiento que mis datos son anónimos y que en ningún momento se me pide información
+            sobre mi identidad. Se me ha hecho saber que la investigación no daña mi salud, que no recibiré un beneficio económico
+            por mi participación y que estoy en mi derecho de retirarme en cualquier momento si así lo deseo." </p>
+            <p>Si estás de acuerdo con el párrafo anterior y has decidido participar, por favor, presiona el botón que dice </strong>ACEPTO.</p>
+            <p>Si no estás de acuerdo, por favor, cierra el navegador para cancelar el experimento. </p>
+            
+            <p>Si tienes alguna duda puedes escribir a: alejandra.ciria@unam.mx </p>
+            </div>
+    `,
+    choices: ['ACEPTO']
 };
-
 
 ////////////////////////////////////////////////
 ///////// Pantalla completa ///////////////////
@@ -220,7 +262,7 @@ var instructions_1 = {
         '<p>Para dar tus respuestas, tendrás que dar clic en el número de la escala que mejor evalúe tu experiencia con cada una de las partes del cuerpo.</p>' +
         '<img src="instrucciones_oraciones_efectores.png" style = "max-width:70%; height:auto;"></img>'+
         '<p>Después de dar tus respuestas tendrás que presionar el botón “Continuar” para pasar a la siguiente oración y su respectiva PALABRA a evaluar.</p>',
-        '<p>Por favor, es importante que si estás contestando a través de un <strong> celular lo coloques en posición horizontal </strong> para visualizar correctamente las escalas</p>' +
+        '<p>Por favor, si estás contestando a través de un <strong> celular, colocalo en posición horizontal.</strong></p>' +
         '<p>Finalmente, en esta tarea no hay respuestas correctas o incorrectas.</p>' +
         '<p>Lo más importante es que te bases en tu propio juicio.</p>' +
         '<p>___________________</p>' +
@@ -257,7 +299,7 @@ var instructions_2 = {
         '<img src="instrucciones_oraciones_sentidos.png" style = "max-width:70%; height:auto;"></img>' +
         '<p>Para dar tus respuestas, tendrás que dar clic en el número de la escala que mejor evalúe tu experiencia con cada uno de los sentidos.</p>' +
         '<p>Después de dar tus respuestas tendrás que presionar el botón “Continuar” para pasar a la siguiente oración y su respectiva PALABRA a evaluar.</p>',
-        '<p>Por favor, es importante que si estás contestando a través de un <strong> celular lo coloques en posición horizontal </strong> para visualizar correctamente las escalas</p>' +
+        '<p>Por favor, si estás contestando a través de un <strong> celular, colocalo en posición horizontal.</strong></p>' +
         '<p>Finalmente, en esta tarea no hay respuestas correctas o incorrectas.</p>' +
         '<p>Lo más importante es que te bases en tu propio juicio.</p>' +
         '<p>___________________</p>' +
@@ -297,7 +339,7 @@ var instructions_3 = {
         '<p>Para dar tus respuestas, tendrás que dar clic en el número de la escala que mejor evalúe tu experiencia con cada una de las partes del cuerpo.</p>' +
         '<img src="instrucciones_palabras_efectores.png" style = "max-width:70%; height:auto;"></img>'+
         '<p>Después de dar tus respuestas tendrás que presionar el botón “Continuar” para pasar a la siguiente PALABRA a evaluar.</p>',
-        '<p>Por favor, es importante que si estás contestando a través de un <strong> celular lo coloques en posición horizontal </strong> para visualizar correctamente las escalas</p>' +
+        '<p>Por favor, si estás contestando a través de un <strong> celular, colocalo en posición horizontal.</strong></p>' +
         '<p>Finalmente, en esta tarea no hay respuestas correctas o incorrectas.</p>' +
         '<p>Lo más importante es que te bases en tu propio juicio.</p>' +
         '<p>___________________</p>' +
@@ -333,7 +375,7 @@ var instructions_4 = {
         '<img src="instrucciones_palabras_sentidos.png" style = "max-width:70%; height:auto;"></img>' +
         '<p>Para dar tus respuestas, tendrás que dar clic en el número de la escala que mejor evalúe tu experiencia con cada uno de los sentidos.</p>' +
         '<p>Después de dar tus respuestas tendrás que presionar el botón “Continuar” para pasar a la siguiente PALABRA a evaluar.</p>',
-        '<p>Por favor, es importante que si estás contestando a través de un <strong> celular lo coloques en posición horizontal </strong> para visualizar correctamente las escalas</p>' +
+        '<p>Por favor, si estás contestando a través de un <strong> celular, colocalo en posición horizontal.</strong></p>' +
         '<p>Finalmente, en esta tarea no hay respuestas correctas o incorrectas.</p>' +
         '<p>Lo más importante es que te bases en tu propio juicio.</p>' +
         '<p>___________________</p>' +
@@ -641,13 +683,13 @@ const save_data = {
 
 var timeline;
     if (CONDITION == 1) {
-        timeline = [preload,pantalla_completa,consentimiento,genero,edad,nacionalidad,lengua_m,area].concat(instructions_1).concat(inicio_experimento).concat(trials_1).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(save_data).concat(pantalla_salir);
+        timeline = [preload,pantalla_completa,consentimiento_informado,genero,edad,nacionalidad,lengua_m,area].concat(instructions_1).concat(inicio_experimento).concat(trials_1).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(save_data).concat(pantalla_salir);
     } else if (CONDITION == 2) {
-        timeline = [preload,pantalla_completa,consentimiento,genero,edad,nacionalidad,lengua_m,area].concat(instructions_2).concat(inicio_experimento).concat(trials_2).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(save_data).concat(pantalla_salir);
+        timeline = [preload,pantalla_completa,consentimiento_informado,genero,edad,nacionalidad,lengua_m,area].concat(instructions_2).concat(inicio_experimento).concat(trials_2).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(save_data).concat(pantalla_salir);
     } else if (CONDITION == 3) {
-        timeline = [preload,pantalla_completa,consentimiento,genero,edad,nacionalidad,lengua_m,area].concat(instructions_3).concat(inicio_experimento).concat(trials_3).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(save_data).concat(pantalla_salir);
+        timeline = [preload,pantalla_completa,consentimiento_informado,genero,edad,nacionalidad,lengua_m,area].concat(instructions_3).concat(inicio_experimento).concat(trials_3).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(save_data).concat(pantalla_salir);
     } else {
-        timeline = [preload,pantalla_completa,consentimiento,genero,edad,nacionalidad,lengua_m,area].concat(instructions_4).concat(inicio_experimento).concat(trials_4).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(save_data).concat(pantalla_salir);
+        timeline = [preload,pantalla_completa,consentimiento_informado,genero,edad,nacionalidad,lengua_m,area].concat(instructions_4).concat(inicio_experimento).concat(trials_4).concat(final).concat(dificultad).concat(estrategia).concat(agradecimiento).concat(save_data).concat(pantalla_salir);
     };
 
 
